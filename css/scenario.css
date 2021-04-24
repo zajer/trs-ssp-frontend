@@ -1,0 +1,7 @@
+.pure-g > div {
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+.l-box {
+	padding: 1em;
+}
