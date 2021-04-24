@@ -1,7 +1,16 @@
-.pure-g > div {
+.boxed > div {
 	box-sizing: border-box;
 	border: 1px solid black;
 }
-.l-box {
-	padding: 1em;
+#timeline {
+	height: 30vh;
+}
+#bigraph {
+    height: 70vh;
+}
+#info_box {
+    height: 60vh;
+}
+.pad-1 {
+	padding: .5em;
 }

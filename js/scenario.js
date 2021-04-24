@@ -15,6 +15,7 @@ var items = new vis.DataSet([
 var timeline_options = 
 	{
 		width: '100%',
+		height:'100%'
 		
 	};
 
@@ -47,6 +48,6 @@ var data = {
 };
 var network_options = 
 	{
-  	height: '250px',
+  	height: '100%',
   };
 var network = new vis.Network(container, data, network_options);

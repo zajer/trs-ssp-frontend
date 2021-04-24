@@ -10,22 +10,25 @@
 		<link rel="stylesheet" type="text/css" href="https://unpkg.com/vis-network/styles/vis-network.min.css" />
 	</head>
 	<body>
-		<div class="pure-g">
-			<div class="pure-u-1-1 l-box">
-			  <p>Timeline</p>
+		<div class="pure-g boxed">
+			<div id="timeline" class="pure-u-1-1 pad-1">
 			  <div id="visualization"></div>
 			</div>
-			<div class="pure-u-4-5 l-box">
-			  <p>Bigraph</p>
+			<div id="bigraph" class="pure-u-18-24 pad-1">
 			  <div id="bigraph"></div>
 			</div>
-			<div class="pure-u-1-5 l-box">
-				<p>State Info</p>
-			</div>
-			<div class="pure-u-1-1 l-box">
-				<p>Menu</p>
-				<button class="pure-button">Back to list of states</button>
-				<button class="pure-button">Back to all scenarios</button>
+			<div id="panel" class="pure-u-6-24 pad-1">
+				<div class="pure-g">
+					<div id="info_box" class="pure-u-1-1">
+						<p>State Info</p>
+					</div>
+					<div class="pure-u-1-2">
+						<button class="pure-button">Back to list of states</button>
+					</div>
+					<div class="pure-u-1-2">
+						<button class="pure-button">Back to all scenarios</button>
+					</div>
+				</div>
 			</div>
 		</div>
 		<script type="text/javascript" src="js/scenario.js"></script>
