@@ -2,36 +2,41 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-nr-min.css" >
+		<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css" />
 		<script type="text/javascript" src="https://unpkg.com/moment@latest"></script>
 		<script type="text/javascript" src="https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js"></script>
 		<script type="text/javascript" src="https://unpkg.com/vis-timeline@latest/peer/umd/vis-timeline-graph2d.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://unpkg.com/vis-timeline/styles/vis-timeline-graph2d.min.css" />
 		<script type="text/javascript" src="https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://unpkg.com/vis-network/styles/vis-network.min.css" />
+		<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 	</head>
 	<body>
 		<div class="pure-g boxed">
 			<div id="timeline" class="pure-u-1-1 pad-1">
-			  <div id="visualization"></div>
+			  <div id="timeline_wrapper"></div>
 			</div>
 			<div id="bigraph" class="pure-u-18-24 pad-1">
-			  <div id="bigraph"></div>
+			  <div id="bigraph_wrapper"></div>
 			</div>
 			<div id="panel" class="pure-u-6-24 pad-1">
 				<div class="pure-g">
-					<div id="info_box" class="pure-u-1-1">
-						<p>State Info</p>
+					<div class="pure-u-1-1">
+						<div id="scenario_info_area"></div>
 					</div>
-					<div class="pure-u-1-2">
-						<button class="pure-button">Back to list of states</button>
+					<div class="pure-u-1 pure-u-xl-1-2">
+						<div id="ui_map_area" class="pad-1 table-wrapper-scroll-y my-custom-scrollbar"></div>
 					</div>
-					<div class="pure-u-1-2">
-						<button class="pure-button">Back to all scenarios</button>
+					<div class="pure-u-1 pure-u-xl-1-2"> 
+						<div id="sat_config_area" class="pad-1 table-wrapper-scroll-y my-custom-scrollbar"></div>
 					</div>
+					
 				</div>
 			</div>
 		</div>
 		<script type="text/javascript" src="js/scenario.js"></script>
+		<script type="text/javascript" src="js/scenario_timeline.js"></script>
+		<script type="text/javascript" src="js/scenario_network.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/scenario.css" />
 	</body>
 </html>

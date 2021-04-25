@@ -3,14 +3,22 @@
 	border: 1px solid black;
 }
 #timeline {
-	height: 30vh;
+	height: 40vh;
 }
 #bigraph {
-    height: 70vh;
+    height: 60vh;
 }
 #info_box {
-    height: 60vh;
+    height: 50vh;
 }
 .pad-1 {
 	padding: .5em;
+}
+.my-custom-scrollbar {
+	position: relative;
+	height: 180px;
+	overflow: auto;
+}
+.table-wrapper-scroll-y {
+	display: block;
 }
