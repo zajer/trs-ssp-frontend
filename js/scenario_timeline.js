@@ -39,7 +39,9 @@ var timeline_options =
 		format: {
 			minorLabels: function (date, scale, step){
 				var zero =new Date(0);
-				return (date._d.getTime()-zero.getTime())}
+				var diff = date._d.getTime()-zero.getTime()
+				return (diff.toString());
+				}
 		},
 		showMajorLabels : false
 		

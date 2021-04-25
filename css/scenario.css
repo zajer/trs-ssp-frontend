@@ -6,7 +6,7 @@
 	height: 40vh;
 }
 #bigraph {
-    height: 60vh;
+    height: 56vh;
 }
 #info_box {
     height: 50vh;
@@ -14,11 +14,22 @@
 .pad-1 {
 	padding: .5em;
 }
+.tpad-1 {
+	padding-top: .5em;
+}
+.lpad-1 {
+	padding-left: .7em;
+}
 .my-custom-scrollbar {
 	position: relative;
-	height: 180px;
+	height: 38vh;
 	overflow: auto;
 }
 .table-wrapper-scroll-y {
 	display: block;
+}
+.my-custom-scrollbar2 {
+	position: relative;
+	height: 55.5vh;
+	overflow: auto;
 }
