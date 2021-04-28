@@ -1,0 +1,34 @@
+{
+  "name": "trs-ssp-frontend",
+  "version": "0.1.0",
+  "description": "A tool for visual presentation of scenarios construced based on behavior policies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "build-dev": "webpack --mode development",
+    "rebuild-dev": "webpack --mode development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zajer/trs-ssp-frontend.git"
+  },
+  "keywords": [
+    "trs",
+    "ssp",
+    "frontend"
+  ],
+  "author": "Piotr Cybulski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zajer/trs-ssp-frontend/issues"
+  },
+  "homepage": "https://github.com/zajer/trs-ssp-frontend#readme",
+  "dependencies": {
+    "mithril": "^2.0.4"
+  },
+  "devDependencies": {
+    "webpack": "^5.35.1",
+    "webpack-cli": "^4.6.0"
+  }
+}

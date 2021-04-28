@@ -1,0 +1,8 @@
+{
+	"is_scenario_valid":true,
+	"message":null,
+	"directory":"exmp_ex1_content",
+	"timeline_filename":"exmp_ex1_content//exmp_ex1-timeline.json",
+	"groups_filename":"exmp_ex1_content//exmp_ex1-groups.json",
+	"states_regex":"exmp_ex1-state-T:[0-9]+.json"
+}
