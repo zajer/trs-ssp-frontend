@@ -1,10 +1,13 @@
-from flask import Flask, jsonify, make_response
-from flask_cors import CORS, cross_origin
-import os, json, re
+from flask import Flask, jsonify, make_response, request
+from flask_cors import cross_origin
+import os, json, re, hashlib
 
 app = Flask(__name__)
 root_dir = "data"
 
+def _hash_of_file (relative_path_to_file):
+    path_to_file = os.path.join(root_dir,relative_path_to_file)
+    return hashlib.md5(open(path_to_file,'rb').read()).hexdigest()
 def _load_json (relative_path_to_file):
     path_to_file = os.path.join(root_dir,relative_path_to_file)
     f = open(path_to_file)
@@ -28,11 +31,15 @@ def _scenario_overview_data(scenario_main_file):
         'is_valid': scenario['is_scenario_valid']
     }
     return result
-def _get_timeline(scenario_main_file):
+def _get_timeline(scenario_main_file,last_hash):
     scenario = _load_json(scenario_main_file)
+    current_hash = _hash_of_file(scenario['timeline_filename'])
+    if last_hash != '' and current_hash == last_hash:
+        return { 'message': 'No changes since last pull.'}
     result = { 
             'timeline_groups_dataset': _load_json(scenario['groups_filename']),
-            'timeline_items_dataset': _load_json(scenario['timeline_filename'])
+            'timeline_items_dataset': _load_json(scenario['timeline_filename']),
+            'hash': _hash_of_file(scenario['timeline_filename'])
         }
     return result
 def _get_ith_state(directory,regex,i):
@@ -84,11 +91,12 @@ def single_in_moment(scenario_main_file="",state_number=-1):
 @app.route('/single/<string:scenario_main_file>/timeline')
 @cross_origin(supports_credentials=True)
 def single_timeline(scenario_main_file=""):
+    hash = request.args.get('hash')
     scenario_validity_result = _does_scenario_exist(scenario_main_file)
     if not scenario_validity_result:
         message = jsonify(message='No such scenario')
         return make_response(message, 400)
-    return _get_timeline(scenario_main_file)
+    return _get_timeline(scenario_main_file,hash)
 @app.route('/single/<string:scenario_main_file>')
 @cross_origin(supports_credentials=True)
 def single_overview(scenario_main_file=""):
