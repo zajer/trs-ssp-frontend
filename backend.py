@@ -31,7 +31,7 @@ def _scenario_overview_data(scenario_main_file):
 def _get_timeline(scenario_main_file):
     scenario = _load_json(scenario_main_file)
     result = { 
-            'groups_dataset': _load_json(scenario['groups_filename']),
+            'timeline_groups_dataset': _load_json(scenario['groups_filename']),
             'timeline_items_dataset': _load_json(scenario['timeline_filename'])
         }
     return result
@@ -72,6 +72,7 @@ def _does_state_exist(scenario_main_file,state_number):
     else:
         return True  
 @app.route('/single/<string:scenario_main_file>/<int:state_number>')
+@cross_origin(supports_credentials=True)
 def single_in_moment(scenario_main_file="",state_number=-1):
     if not _does_scenario_exist(scenario_main_file):
         message = jsonify(message='No such scenario')
@@ -81,6 +82,7 @@ def single_in_moment(scenario_main_file="",state_number=-1):
         return make_response(message, 404)
     return _scenario_state_data(scenario_main_file,state_number)
 @app.route('/single/<string:scenario_main_file>/timeline')
+@cross_origin(supports_credentials=True)
 def single_timeline(scenario_main_file=""):
     scenario_validity_result = _does_scenario_exist(scenario_main_file)
     if not scenario_validity_result:
@@ -88,6 +90,7 @@ def single_timeline(scenario_main_file=""):
         return make_response(message, 400)
     return _get_timeline(scenario_main_file)
 @app.route('/single/<string:scenario_main_file>')
+@cross_origin(supports_credentials=True)
 def single_overview(scenario_main_file=""):
     if scenario_main_file == "":
         message = jsonify(message='Scenario name is missing')
