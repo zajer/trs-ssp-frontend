@@ -5,38 +5,34 @@ import os, json, re
 app = Flask(__name__)
 root_dir = "data"
 
-def _num_of_states (directory,regex):
-    files = os.listdir(directory)
-    result = 0
-    for file in files:
-        match = re.search(regex,file)
-        if not ( match is None ):
-            result = result + 1
-    return result
 def _load_json (relative_path_to_file):
     path_to_file = os.path.join(root_dir,relative_path_to_file)
     f = open(path_to_file)
     data = json.load(f)
     f.close()
     return data
-def _scenario_overview_data(path_to_main_file):
-    f = open(path_to_main_file)
-    data = json.load(f)
-    f.close()
+def _num_of_states (relative_directory_with_states,regex):
+    absolute_dir = os.path.join(root_dir,relative_directory_with_states)
+    files = os.listdir(absolute_dir)
+    result = 0
+    for file in files:
+        match = re.search(regex,file)
+        if not ( match is None ):
+            result = result + 1
+    return result
+def _scenario_overview_data(scenario_main_file):
+    scenario = _load_json(scenario_main_file)
     result = {        
-        'name': data['name'],
-        'num_of_states': _num_of_states(os.path.join(root_dir,data['directory']),data['states_regex']),
-        'is_valid': data['is_scenario_valid']
+        'name': scenario['name'],
+        'num_of_states': _num_of_states(scenario['directory'],scenario['states_regex']),
+        'is_valid': scenario['is_scenario_valid']
     }
     return result
 def _get_timeline(scenario_main_file):
-    path_to_main_file = os.path.join(root_dir,scenario_main_file)
-    f = open(path_to_main_file)
-    data = json.load(f)
-    f.close()
+    scenario = _load_json(scenario_main_file)
     result = { 
-            'groups_dataset': _load_json(data['groups_filename']),
-            'timeline_items_dataset': _load_json(data['timeline_filename'])
+            'groups_dataset': _load_json(scenario['groups_filename']),
+            'timeline_items_dataset': _load_json(scenario['timeline_filename'])
         }
     return result
 def _get_ith_state(directory,regex,i):
@@ -50,10 +46,7 @@ def _get_ith_state(directory,regex,i):
     res_filename = result[i] 
     return _load_json(os.path.join(directory,res_filename))
 def _scenario_state_data(scenario_main_file,i):
-    path_to_main_file = os.path.join(root_dir,scenario_main_file)
-    f = open(path_to_main_file)
-    scenario = json.load(f)
-    f.close()
+    scenario = _load_json(scenario_main_file)
     states_regex = scenario['states_regex']
     states_dir = scenario['directory']
     state_data = _get_ith_state(states_dir,states_regex,i)
@@ -73,23 +66,20 @@ def _does_scenario_exist(scenario_main_file):
         return True
 def _does_state_exist(scenario_main_file,state_number):
     scenario =_load_json(scenario_main_file)
-    num_of_states = _num_of_states(os.path.join(root_dir,scenario['directory']),scenario['states_regex'])
+    num_of_states = _num_of_states(scenario['directory'],scenario['states_regex'])
     if num_of_states < state_number or state_number < 0:
         return False
     else:
         return True  
 @app.route('/single/<string:scenario_main_file>/<int:state_number>')
 def single_in_moment(scenario_main_file="",state_number=-1):
-    scenario_validity_result = _does_scenario_exist(scenario_main_file)
-    if not scenario_validity_result:
+    if not _does_scenario_exist(scenario_main_file):
         message = jsonify(message='No such scenario')
         return make_response(message, 400)
-    state_validity_result = _does_state_exist(scenario_main_file,state_number)
-    if not state_validity_result:
+    if not _does_state_exist(scenario_main_file,state_number):
         message = jsonify(message='This scenario does not have:'+str(state_number)+' states')
         return make_response(message, 404)
     return _scenario_state_data(scenario_main_file,state_number)
-
 @app.route('/single/<string:scenario_main_file>/timeline')
 def single_timeline(scenario_main_file=""):
     scenario_validity_result = _does_scenario_exist(scenario_main_file)
@@ -97,18 +87,16 @@ def single_timeline(scenario_main_file=""):
         message = jsonify(message='No such scenario')
         return make_response(message, 400)
     return _get_timeline(scenario_main_file)
-@app.route('/single/')
-@app.route('/single/<string:scenario_name>')
-def single_overview(scenario_name=""):
-    if scenario_name == "":
+@app.route('/single/<string:scenario_main_file>')
+def single_overview(scenario_main_file=""):
+    if scenario_main_file == "":
         message = jsonify(message='Scenario name is missing')
         return make_response(message, 400);
-    path_to_file = os.path.join(root_dir,scenario_name)
-    if not os.path.isfile(path_to_file):
+    if not _does_scenario_exist(scenario_main_file):
         message = jsonify(message='No such scenario.')
         return make_response(message, 404)
     else :
-        result = _scenario_overview_data(path_to_file)
+        result = _scenario_overview_data(scenario_main_file)
         return result
 def _list_scenarios():
     files = os.listdir(root_dir)
