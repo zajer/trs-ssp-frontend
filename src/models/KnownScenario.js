@@ -6,8 +6,7 @@ var KnownScenario = {
     loadList: function() {
         return m.request({
             method: "GET",
-            url: config.addr_scenarios(),
-			withCredentials: true
+            url: config.addr_all()
         })
         .then(function(result) {
             KnownScenario.list = result
