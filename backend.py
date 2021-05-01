@@ -28,7 +28,8 @@ def _scenario_overview_data(scenario_main_file):
     result = {        
         'name': scenario['name'],
         'num_of_states': _num_of_states(scenario['directory'],scenario['states_regex']),
-        'is_valid': scenario['is_scenario_valid']
+        'is_valid': scenario['is_scenario_valid'],
+        'message': scenario['message']
     }
     return result
 def _get_timeline(scenario_main_file,last_hash):

@@ -6,7 +6,7 @@ var DetailedScenario = {
 	name: "scenario_name",
 	scenario_main_file: "",
 	num_of_states: -1,
-	error_msg: "",
+	output_msg: "",
 	timeline_items: [],
 	timeline_groups: [],
 	timeline_hash: "",
@@ -23,7 +23,8 @@ var DetailedScenario = {
         .then(function(result) {
             DetailedScenario.is_valid = result.is_valid;
 			DetailedScenario.name = result.name;
-			DetailedScenario.num_of_states = result.num_of_states
+			DetailedScenario.num_of_states = result.num_of_states;
+			DetailedScenario.output_msg = result.message;
         })
         .catch(function(e) {
                 console.log("Could not retrieve details about specified scenario");

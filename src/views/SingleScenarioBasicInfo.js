@@ -47,8 +47,8 @@ module.exports = {
 				)
 			]),
 			m("tr", [
-				m("td","Error message"),
-				m("td", DetailedScenario.error_msg )
+				m("td","Output message"),
+				m("td", DetailedScenario.output_msg )
 			])
 		])
     }
