@@ -3,7 +3,7 @@ var config = require("../Config")
 
 var DetailedScenario = {
 	is_valid: false,
-	name: "scenario_name",
+	name: "init value",
 	scenario_main_file: "",
 	num_of_states: -1,
 	output_msg: "",
@@ -15,6 +15,22 @@ var DetailedScenario = {
 	current_state_network_edges: [],
 	current_state_ui_map: [],
 	current_state_sat_config: [],
+	reset: function() {
+		console.log("reset");
+		DetailedScenario.is_valid = false;
+		DetailedScenario.name = "init value";
+		DetailedScenario.scenario_main_file = "";
+		DetailedScenario.num_of_states = -1;
+		DetailedScenario.output_msg = "";
+		DetailedScenario.timeline_items = [];
+		DetailedScenario.timeline_groups = [];
+		DetailedScenario.timeline_hash = "";
+		DetailedScenario.current_state = -1;
+		DetailedScenario.current_state_network_nodes = [];
+		DetailedScenario.current_state_network_edges = [];
+		DetailedScenario.current_state_ui_map = [];
+		DetailedScenario.current_state_sat_config = [];
+	},
     load_overview: function(name) {
         return m.request({
             method: "GET",
