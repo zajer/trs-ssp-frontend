@@ -1,0 +1,36 @@
+.boxed > div {
+	box-sizing: border-box;
+	border: 1px solid black;
+}
+#timeline_container {
+	height: 42vh;
+}
+.top {
+	height: 42vh;
+}
+
+.mid {
+    height: 54vh;
+}
+.pad-1 {
+	padding: .5em;
+}
+.tpad-1 {
+	padding-top: .5em;
+}
+.lpad-1 {
+	padding-left: .7em;
+}
+.my-custom-scrollbar {
+	position: relative;
+	height: 38vh;
+	overflow: auto;
+}
+.table-wrapper-scroll-y {
+	display: block;
+}
+.my-custom-scrollbar2 {
+	position: relative;
+	height: 55.5vh;
+	overflow: auto;
+}

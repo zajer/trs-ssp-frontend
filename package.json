@@ -1,13 +1,16 @@
 {
-  "name": "trs-ssp-frontend",
-  "version": "0.1.0",
-  "description": "A tool for visual presentation of scenarios construced based on behavior policies.",
+  "name": "my-webpack-project",
+  "version": "1.0.0",
+  "description": "My webpack project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack --mode=production",
     "build-dev": "webpack --mode development",
-    "rebuild-dev": "webpack --mode development --watch"
+    "rebuild-dev": "webpack --mode development --watch",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -25,10 +28,18 @@
   },
   "homepage": "https://github.com/zajer/trs-ssp-frontend#readme",
   "dependencies": {
-    "mithril": "^2.0.4"
+    "mithril": "^2.0.4",
+    "moment": "^2.29.1",
+    "purecss": "^2.0.6",
+    "vis-data": "^7.1.2",
+    "vis-timeline": "^7.4.8"
   },
   "devDependencies": {
-    "webpack": "^5.35.1",
+    "@webpack-cli/generators": "^2.0.0",
+    "css-loader": "^5.2.4",
+    "file-loader": "^6.2.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.36.2",
     "webpack-cli": "^4.6.0"
   }
 }
