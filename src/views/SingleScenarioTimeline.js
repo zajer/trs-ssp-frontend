@@ -25,8 +25,7 @@ var timeline_options =
 
 module.exports = {
 	oninit: function(vnode) {
-			DetailedScenario.load_timeline(vnode.attrs.name);
-		
+			DetailedScenario.load_timeline(DetailedScenario.scenario_main_file);
 		},
 	oncreate: function(){
 		var timeline_container = document.getElementById("timeline_container");

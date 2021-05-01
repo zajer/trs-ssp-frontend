@@ -9,9 +9,9 @@ function colorFromBool(b){
 }
 
 module.exports = {
-	oninit: function(vnode) {
+	oninit: function() {
 		console.log("ssbi-oninit")
-		DetailedScenario.load_overview(vnode.attrs.name);
+		DetailedScenario.load_overview(DetailedScenario.scenario_main_file);
 		},
     view: function() {
 		console.log("ssbi-view");
