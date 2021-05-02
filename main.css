@@ -2,11 +2,19 @@
 	box-sizing: border-box;
 	border: 1px solid black;
 }
+.custom-pure-button {
+	color: white;
+	border-radius: 4px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
 .top {
 	height: 42vh;
 }
 .mid {
     height: 54vh;
+}
+.bot {
+	height: 4vh;
 }
 .pad-1 {
 	padding: .5em;
@@ -16,6 +24,9 @@
 }
 .lpad-1 {
 	padding-left: .7em;
+}
+.rmargin-1 {
+	margin-right: .5em;
 }
 .my-custom-scrollbar {
 	position: relative;
@@ -27,6 +38,6 @@
 }
 .my-custom-scrollbar2 {
 	position: relative;
-	height: 52vh;
+	height: 54vh;
 	overflow: auto;
 }

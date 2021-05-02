@@ -8,8 +8,8 @@ module.exports = {
 				m(".pure-u-1-1",m("h1", "Provide a moment of scenario at which you want to examine its state.")),
 				m(".pure-u-1-1",m("h2", "(Accepted values range from 0 to "+(DetailedScenario.num_of_states-1)+")")),
 				m(".pure-u-1-1", [
-					m("label", "Moment: "),
-					m("input.input[type=number][placeholder=First name]", {
+					m("label", "Selected moment: "),
+					m("input.input[type=number]", {
 						oninput: function (e) { 
 							var new_val = -1;
 							if (e.target.value < DetailedScenario.num_of_states && e.target.value > 0 ) 
@@ -22,12 +22,15 @@ module.exports = {
 						},
 						value: DetailedScenario.current_state
 					}),
-					m(".pure-button[type=submit]", 
-						{ 
+					m(".pure-button .pure-button-primary", 
+						{
+							style: { 
+								'font-size': '85%',
+								'margin-left': '.5em'
+							},
 							onclick:function (e) { 
 								if (DetailedScenario.is_current_state_valid())
 									location.hash="#!/single/"+DetailedScenario.scenario_main_file+"/"+DetailedScenario.current_state;
-									
 							} 
 						},
 						"Go to the selected moment"

@@ -8,7 +8,7 @@ function _isEarlierStateAvailable(){
 	return DetailedScenario.current_state > 0
 }
 function _classesForChangeStateButton(fun){
-	var result = "pure-button"
+	var result = "pure-button rmargin-1"
 	if ( ! fun() )
 		result = result + " pure-button-disabled"
 	else 
@@ -19,13 +19,15 @@ function _classesForChangeStateButton(fun){
 module.exports = {
     view: function() {
         return [
-			m(".pure-button", {
+			m(".pure-button .custom-pure-button .rmargin-1", {
+				style: { background: 'rgb(223,117,20)' },
                 onclick: function () {
 					DetailedScenario.reset();
 					location.hash="#!/all";
 				},
             }, "Back to scenario selection"),
-			m(".pure-button", {
+			m(".pure-button .custom-pure-button .rmargin-1", {
+				style: { background: 'rgb(28,184,65)' },
                 onclick: function () {
 					location.hash="#!/single/"+DetailedScenario.scenario_main_file;
 				}
