@@ -6,7 +6,6 @@ var _downloadedState = -1;
 
 var midExtended = {
 		onupdate: function() {
-			console.log("update");
 			if ( DetailedScenario.current_state !== _downloadedState ){
 				_downloadedState = DetailedScenario.current_state;
 				DetailedScenario.load_state_data();
