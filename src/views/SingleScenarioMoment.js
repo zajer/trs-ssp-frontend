@@ -1,8 +1,6 @@
 var m = require("mithril")
 var DetailedScenario = require("../models/DetailedScenario")
 var midLayout = require("./SingleScenarioMidLayout")
-var SSStateBigraph = require("./SingleScenarioStateBigraph")
-var SSStateInfo = require("./SingleScenarioStateInfo")
 
 var _downloadedState = -1;
 
