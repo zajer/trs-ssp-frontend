@@ -9,10 +9,6 @@ function colorFromBool(b){
 }
 
 module.exports = {
-	oninit: function() {
-		console.log("ssbi-oninit")
-		DetailedScenario.load_overview(DetailedScenario.scenario_main_file);
-		},
     view: function() {
 		console.log("ssbi-view");
         return m("table", {class:"pure-table pure-table-bordered"}, [
@@ -27,10 +23,6 @@ module.exports = {
 				m("td",DetailedScenario.name)
 			]),
 			m("tr", [
-				m("td","Scenario main file name"),
-				m("td",DetailedScenario.scenario_main_file)
-			]),
-			m("tr", [
 				m("td","Number of states"),
 				m("td",DetailedScenario.num_of_states)
 			]),
@@ -42,13 +34,9 @@ module.exports = {
 							color:colorFromBool(DetailedScenario.is_valid),
 							fontWeight:700
 							}
-					} , 
+					}, 
 					DetailedScenario.is_valid.toString()
 				)
-			]),
-			m("tr", [
-				m("td","Output message"),
-				m("td", DetailedScenario.output_msg )
 			])
 		])
     }

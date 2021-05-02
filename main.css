@@ -5,10 +5,12 @@
 #timeline_container {
 	height: 42vh;
 }
+#bigraph_container {
+    height: 54vh;
+}
 .top {
 	height: 42vh;
 }
-
 .mid {
     height: 54vh;
 }
@@ -23,7 +25,7 @@
 }
 .my-custom-scrollbar {
 	position: relative;
-	height: 38vh;
+	max-height: 45vh;
 	overflow: auto;
 }
 .table-wrapper-scroll-y {
@@ -31,6 +33,6 @@
 }
 .my-custom-scrollbar2 {
 	position: relative;
-	height: 55.5vh;
+	height: 52vh;
 	overflow: auto;
 }

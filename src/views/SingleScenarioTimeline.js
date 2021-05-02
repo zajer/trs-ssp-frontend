@@ -1,5 +1,5 @@
 var m = require("mithril")
-var vis_ds = require("vis-data")
+//var vis_ds = require("vis-data")
 var vis = require("vis-timeline")
 require("vis-timeline/styles/vis-timeline-graph2d.css")
 
@@ -25,7 +25,7 @@ var timeline_options =
 
 module.exports = {
 	oninit: function(vnode) {
-			DetailedScenario.load_timeline(DetailedScenario.scenario_main_file);
+			DetailedScenario.load_timeline();
 		},
 	oncreate: function(){
 		var timeline_container = document.getElementById("timeline_container");
