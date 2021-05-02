@@ -5,6 +5,8 @@ import os, json, re, hashlib
 app = Flask(__name__)
 root_dir = "data"
 
+known_scenarios = []
+last_mod_time = 0.0
 def _hash_of_file (relative_path_to_file):
     path_to_file = os.path.join(root_dir,relative_path_to_file)
     return hashlib.md5(open(path_to_file,'rb').read()).hexdigest()
@@ -110,6 +112,12 @@ def single_overview(scenario_main_file=""):
         result = _scenario_overview_data(scenario_main_file)
         return result
 def _list_scenarios():
+    global last_mod_time
+    global known_scenarios
+    mod_time = os.path.getmtime(root_dir)
+    if last_mod_time == mod_time :
+        print('No changes since last all scenario listing')
+        return known_scenarios
     files = os.listdir(root_dir)
     keyword = 'trs-ssp-output.json'
     result = []
@@ -117,7 +125,15 @@ def _list_scenarios():
         path_to_file = os.path.join(root_dir,file)
         if os.path.isfile(path_to_file):
             if keyword in file:
-                result.append(file)
+                scenario = _load_json(file)
+                part_result = {
+                    'main_file': file,
+                    'scenario_name': scenario['name'],
+                    'is_scenario_valid': scenario['is_scenario_valid']
+                }
+                result.append(part_result)
+    known_scenarios = result
+    last_mod_time = mod_time
     return result
 @app.route('/all/')
 @cross_origin(supports_credentials=True)
