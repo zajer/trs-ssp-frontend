@@ -22,7 +22,7 @@ module.exports = {
 						},
 						value: DetailedScenario.current_state
 					}),
-					m(".pure-button .pure-button-primary", 
+					m(DetailedScenario.is_current_state_valid() ? ".pure-button .pure-button-primary" : ".pure-button .pure-button-disabled", 
 						{
 							style: { 
 								'font-size': '85%',
