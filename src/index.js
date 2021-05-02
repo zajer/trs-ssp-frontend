@@ -16,7 +16,6 @@ var DetailedScenario = require("./models/DetailedScenario")
 var midLayout = require("./views/SingleScenarioMidLayout")
 var midExtended = {
 		oninit: function() {
-			console.log("mide-oi");
 			DetailedScenario.load_state_data();
 		},
 		view: midLayout.view,

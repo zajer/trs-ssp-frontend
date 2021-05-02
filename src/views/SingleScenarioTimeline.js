@@ -34,16 +34,12 @@ module.exports = {
 					}
 			},
 			showMajorLabels : false
-				
 		};
 		timeline_content = new vis.Timeline(timeline_container, items, groups, timeline_options);
 		lastHash = ""
 	},
 	onupdate: function() {
-		
-		console.log("timeline-onupdate");
 		if (DetailedScenario.timeline_hash !== lastHash) {
-			console.log("timeline-update");
 			var groups = DetailedScenario.timeline_groups;
 			var items = DetailedScenario.timeline_items;
 
@@ -54,7 +50,6 @@ module.exports = {
 				})
 			lastHash=DetailedScenario.timeline_hash;
 		}
-		
 	},
     view: function(vnode) {
         return m(".top", {id: "timeline_container"})

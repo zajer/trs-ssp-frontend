@@ -1,16 +1,8 @@
 var m = require("mithril")
 var DetailedScenario = require("../models/DetailedScenario")
 
-function colorFromBool(b){
-	if (b)
-		return 'green';
-	else
-		return 'red';
-}
-
 module.exports = {
     view: function() {
-		console.log("ssss-view");
         return m("form", [
 			m(".pure-g", [
 				m(".pure-u-1-1",m("h1", "Provide a moment of scenario at which you want to examine its state.")),

@@ -16,7 +16,6 @@ var DetailedScenario = {
 	current_state_ui_map: [],
 	current_state_sat_config: [],
 	reset: function() {
-		console.log("reset");
 		DetailedScenario.is_valid = false;
 		DetailedScenario.name = "init value";
 		DetailedScenario.scenario_main_file = "";
@@ -32,13 +31,11 @@ var DetailedScenario = {
 		DetailedScenario.current_state_sat_config = [];
 	},
     load_overview: function() {
-		console.log("getting overview");
         return m.request({
             method: "GET",
             url: config.addr_single_overview(DetailedScenario.scenario_main_file)
         })
         .then(function(result) {
-			console.log("retrieved overview");
             DetailedScenario.is_valid = result.is_valid;
 			DetailedScenario.name = result.name;
 			DetailedScenario.num_of_states = result.num_of_states;
@@ -71,15 +68,13 @@ var DetailedScenario = {
             url: config.addr_single_timeline(DetailedScenario.scenario_main_file,DetailedScenario.timeline_hash)
         })
         .then(function(result) {
-			console.log("retrieved timeline");
-			console.log(result);
 			if (!result.hasOwnProperty('message')) {
 				DetailedScenario.timeline_hash = result.hash;
 				DetailedScenario.timeline_items = result.timeline_items_dataset;
 				DetailedScenario.timeline_groups = result.timeline_groups_dataset;
 			}
 			else
-				console.log("timeline has not changed since the last check")
+				console.log("The timeline has not changed since the last check")
         })
         .catch(function(e) {
                 console.log("Could not retrieve timeline of specified scenario");
@@ -87,7 +82,6 @@ var DetailedScenario = {
         })
 	},
 	is_current_state_valid(){
-		console.log("csv");
 		if (DetailedScenario.current_state >= 0 && DetailedScenario.current_state < DetailedScenario.num_of_states)
 			return true;
 		else

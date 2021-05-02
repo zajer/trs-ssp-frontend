@@ -1,8 +1,7 @@
 var m = require("mithril")
 var DetailedScenario = require("../models/DetailedScenario")
 
-function makeRowsBasedOnArrayOfPairs(arr) {
-	console.log("mapping...");
+function _makeRowsBasedOnArrayOfPairs(arr) {
 	var result = arr.map(function( pair ) {
 		return m("tr", [
 				m("th", pair[0]),
@@ -14,19 +13,16 @@ function makeRowsBasedOnArrayOfPairs(arr) {
 
 module.exports = {
     view: function(vnode) {
-		console.log("ssai-view");
-		console.log(vnode);
         return m(".table-wrapper-scroll-y .my-custom-scrollbar ", 
-					m("table", {class:"pure-table pure-table-horizontal"}, [
-						m("thead", [
-							m("tr", [
-								m("th", vnode.attrs.head1),
-								m("th", vnode.attrs.head2)
-						])
-					]),
-					makeRowsBasedOnArrayOfPairs(vnode.attrs.dataPairsSet)
-					])
-				)
-		
+			m("table", {class:"pure-table pure-table-horizontal"}, [
+				m("thead", [
+					m("tr", [
+						m("th", vnode.attrs.head1),
+						m("th", vnode.attrs.head2)
+				])
+			]),
+			_makeRowsBasedOnArrayOfPairs(vnode.attrs.dataPairsSet)
+			])
+		)
     }
 }

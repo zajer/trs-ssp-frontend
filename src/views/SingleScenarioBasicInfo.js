@@ -1,7 +1,7 @@
 var m = require("mithril")
 var DetailedScenario = require("../models/DetailedScenario")
 
-function colorFromBool(b){
+function _colorFromBool(b){
 	if (b)
 		return 'green';
 	else
@@ -10,7 +10,6 @@ function colorFromBool(b){
 
 module.exports = {
     view: function() {
-		console.log("ssbi-view");
         return m("table", {class:"pure-table pure-table-bordered"}, [
 			m("thead", [
 					m("tr", [
@@ -31,7 +30,7 @@ module.exports = {
 				m("td", 
 					{
 						style: {
-							color:colorFromBool(DetailedScenario.is_valid),
+							color:_colorFromBool(DetailedScenario.is_valid),
 							fontWeight:700
 							}
 					}, 

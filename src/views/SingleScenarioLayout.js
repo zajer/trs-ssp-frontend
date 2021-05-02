@@ -2,7 +2,6 @@ var m = require("mithril")
 var DetailedScenario = require("../models/DetailedScenario")
 module.exports = {
 	oninit: function() {
-		console.log("ssl-oninit")
 		DetailedScenario.load_overview();
 		},
     view: function(vnode) {
