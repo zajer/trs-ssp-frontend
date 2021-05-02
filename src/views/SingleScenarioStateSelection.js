@@ -37,7 +37,7 @@ module.exports = {
 					)
 				]),
 				m(".pure-u-1-1", m("h3", "Output message (if any):")),
-				m(".pure-u-1-1", m("label", DetailedScenario.output_message)),
+				m(".pure-u-1-1", m("label", DetailedScenario.output_msg)),
 				m(".pure-u-1-1", m("h3", "This scenario main file name:")),
 				m(".pure-u-1-1", m("label", DetailedScenario.scenario_main_file))
 				
