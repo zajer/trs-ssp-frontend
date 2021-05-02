@@ -1,5 +1,4 @@
 var m = require("mithril")
-var DetailedScenario = require("../models/DetailedScenario")
 
 module.exports = {	
     view: function(vnode) {

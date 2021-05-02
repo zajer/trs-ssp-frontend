@@ -34,11 +34,11 @@ module.exports = {
 							fontWeight:700
 							}
 					}, 
-					DetailedScenario.is_valid.toString()
+					DetailedScenario.is_valid ? "yes" : "no"
 				)
 			]),
 			m("tr", [
-				m("td","Currently moment"),
+				m("td","Current moment"),
 				m("td",DetailedScenario.current_state)
 			])
 			

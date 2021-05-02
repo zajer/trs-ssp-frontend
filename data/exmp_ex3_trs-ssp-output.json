@@ -1,7 +1,7 @@
 {
-	"name":"scenario1 - idling example",
-	"is_scenario_valid":true,
-	"message":null,
+	"name":"scenario3 - idling with different color",
+	"is_scenario_valid":false,
+	"message":"Some message about what terrific error has happened during the scenario verification.",
 	"directory":"exmp_ex1_content",
 	"timeline_filename":"exmp_ex1_content//exmp_ex1-timeline.json",
 	"groups_filename":"exmp_ex1_content//exmp_ex1-groups.json",

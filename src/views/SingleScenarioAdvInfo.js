@@ -1,5 +1,4 @@
 var m = require("mithril")
-var DetailedScenario = require("../models/DetailedScenario")
 
 function _makeRowsBasedOnArrayOfPairs(arr) {
 	var result = arr.map(function( pair ) {
@@ -13,7 +12,7 @@ function _makeRowsBasedOnArrayOfPairs(arr) {
 
 module.exports = {
     view: function(vnode) {
-        return m(".table-wrapper-scroll-y .my-custom-scrollbar ", 
+        return m(".table-wrapper-scroll-y .my-custom-scrollbar", 
 			m("table", {class:"pure-table pure-table-horizontal"}, [
 				m("thead", [
 					m("tr", [

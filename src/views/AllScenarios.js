@@ -1,9 +1,6 @@
 var m = require("mithril")
 var KnownScenario = require("../models/KnownScenario")
 var DetailedScenario = require("../models/DetailedScenario")
-var extract_name = function (name) {
-	return name.replace("_trs-ssp-output.json", "");
-}
 function _colorFromBool(b){
 	if (b)
 		return 'rgb(28,184,65)';
