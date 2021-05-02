@@ -58,7 +58,6 @@ def _scenario_state_data(scenario_main_file,i):
     states_regex = scenario['states_regex']
     states_dir = scenario['directory']
     state_data = _get_ith_state(states_dir,states_regex,i)
-    print(state_data)
     network_file = state_data['network_data_file']
     result = {        
         'network': _load_json(network_file),
