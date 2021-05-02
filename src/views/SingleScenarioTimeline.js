@@ -1,27 +1,10 @@
 var m = require("mithril")
-//var vis_ds = require("vis-data")
 var vis = require("vis-timeline")
 require("vis-timeline/styles/vis-timeline-graph2d.css")
 
 var DetailedScenario = require("../models/DetailedScenario")
 var lastHash = ""
 var timeline_content
-
-var timeline_options = 
-	{
-		width: '100%',
-		height:'100%',
-		groupOrder: "content",
-		format: {
-			minorLabels: function (date, scale, step){
-				var zero =new Date(0);
-				var diff = date._d.getTime()-zero.getTime()
-				return (diff.toString());
-				}
-		},
-		showMajorLabels : false
-		
-	};
 
 module.exports = {
 	oninit: function(vnode) {
@@ -30,17 +13,31 @@ module.exports = {
 	oncreate: function(){
 		var timeline_container = document.getElementById("timeline_container");
 			
-			var groups = [];
-			var items = [
-				{
-					content: "",
-					end: 0,
-					group: 0,
-					start: 0
-				}
-			]; //there has to be at least one item otherwise timeline won't be updated
-			timeline_content = new vis.Timeline(timeline_container, items, groups, timeline_options);
-			lastHash = ""
+		var groups = [];
+		var items = [{
+				content: "",
+				end: 0,
+				group: 0,
+				start: 0
+			}
+		]; //there has to be at least one item otherwise timeline won't be updated
+			
+		var timeline_options = {
+			width: '100%',
+			height:'100%',
+			groupOrder: "content",
+			format: {
+				minorLabels: function (date, scale, step){
+					var zero =new Date(0);
+					var diff = date._d.getTime()-zero.getTime()
+					return (diff.toString());
+					}
+			},
+			showMajorLabels : false
+				
+		};
+		timeline_content = new vis.Timeline(timeline_container, items, groups, timeline_options);
+		lastHash = ""
 	},
 	onupdate: function() {
 		
