@@ -11,15 +11,8 @@ var SSStateInfo = require("./views/SingleScenarioStateInfo")
 var SSStateSelection = require("./views/SingleScenarioStateSelection")
 var SSStateBigraph = require("./views/SingleScenarioStateBigraph")
 
-var DetailedScenario = require("./models/DetailedScenario")
-
 var midLayout = require("./views/SingleScenarioMidLayout")
-var midExtended = {
-		oninit: function() {
-			DetailedScenario.load_state_data();
-		},
-		view: midLayout.view,
-	}
+var midExtended = require("./views/SingleScenarioMoment")
 
 m.route(document.body, "/all", {
     "/all": AllScenarios,
