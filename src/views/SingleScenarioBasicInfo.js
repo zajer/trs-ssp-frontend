@@ -36,7 +36,12 @@ module.exports = {
 					}, 
 					DetailedScenario.is_valid.toString()
 				)
+			]),
+			m("tr", [
+				m("td","Currently moment"),
+				m("td",DetailedScenario.current_state)
 			])
+			
 		])
     }
 }
