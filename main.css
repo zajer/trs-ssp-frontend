@@ -2,12 +2,6 @@
 	box-sizing: border-box;
 	border: 1px solid black;
 }
-#timeline_container {
-	height: 42vh;
-}
-#bigraph_container {
-    height: 54vh;
-}
 .top {
 	height: 42vh;
 }

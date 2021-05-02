@@ -26,6 +26,6 @@ module.exports = {
 	},
     view: function() {
 		console.log("sssb-view");
-        return m("#bigraph", m("", {id: "bigraph_container"}))
+        return m(".mid", {id: "bigraph_container"})
     }
 }

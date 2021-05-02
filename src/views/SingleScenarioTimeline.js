@@ -60,6 +60,6 @@ module.exports = {
 		
 	},
     view: function(vnode) {
-        return m("", {id: "timeline_container"})
+        return m(".top", {id: "timeline_container"})
     }
 }
