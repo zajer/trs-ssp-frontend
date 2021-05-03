@@ -13,7 +13,7 @@ module.exports = {
     view: function() {
         return m(".pure-g", KnownScenario.list.map(function(scenario) {
             return m(".pure-u-6-24 .pure-u-xl-3-24 pad-1", 
-				m(".pure-button .custom-pure-button",{
+				m(".custom-pure-button .pad-1",{
 					style : { background: _colorFromBool(scenario.is_scenario_valid) },
 					onclick: function () { 
 						DetailedScenario.scenario_main_file = scenario.main_file;
