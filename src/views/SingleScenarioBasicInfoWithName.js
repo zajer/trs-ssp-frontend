@@ -18,6 +18,10 @@ module.exports = {
 				])
 			]),
 			m("tr", [
+				m("td","Scenario name"),
+				m("td",DetailedScenario.name)
+			]),
+			m("tr", [
 				m("td","Number of states"),
 				m("td",DetailedScenario.num_of_states)
 			]),
