@@ -48,6 +48,7 @@ def _get_timeline(scenario_main_file,last_hash):
 def _get_ith_state(directory,regex,i):
     dir_absolute = os.path.join(root_dir,directory)
     files = os.listdir(dir_absolute)
+    files.sort(key=lambda f: int(re.sub('\D', '', f)))
     result = []
     for file in files:
         match = re.search(regex,file)
