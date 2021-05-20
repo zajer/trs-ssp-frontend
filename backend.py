@@ -48,12 +48,12 @@ def _get_timeline(scenario_main_file,last_hash):
 def _get_ith_state(directory,regex,i):
     dir_absolute = os.path.join(root_dir,directory)
     files = os.listdir(dir_absolute)
-    files.sort(key=lambda f: int(re.sub('\D', '', f)))
     result = []
     for file in files:
         match = re.search(regex,file)
         if not ( match is None ):
             result.append(file)
+    result.sort(key=lambda f: int(re.sub('\D', '', f)))
     res_filename = result[i] 
     return _load_json(os.path.join(directory,res_filename))
 def _scenario_state_data(scenario_main_file,i):
